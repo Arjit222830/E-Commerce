@@ -154,5 +154,5 @@ export const editAdmin= (id, formValues)=> async (dispatch)=> {
 export const deleteAdmin= (id)=> async (dispatch)=> {
     await admin.delete(`/admin/${id}`);
     dispatch({type: DELETE_ADMIN, payload: id});
-   // window.location.replace('/admin/show');
+   window.location.replace('/admin/show');
 };
