@@ -134,6 +134,7 @@ export const createAdmin= (formValues)=> async (dispatch, getState)=>{
     console.log(formValues);
     const response = await admin.post('/admin', {...formValues} );
     dispatch({type: CREATE_ADMIN, payload: response.data});
+    alert("Added");
 };
 
 export const fetchAdmins= () => async (dispatch) => {

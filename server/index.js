@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const path= require('path');
+const cors= require('cors');
 
 const config = require('config');
 const products = require('./routes/products');
@@ -17,13 +19,17 @@ mongoose.set('useFindAndModify', false);
 
 app.set("view engine", "ejs");
 
+app.use(cors());
+app.use(express.static(path.join(__dirname, '../Client/public')));
+
 app.use(express.json());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/product' , products);
 app.use('/brand' , brands);
 
-app.get('/', async function(req,res){
+
+app.get('/brand', async function(req,res){
     res.render('brand');
 });
 
@@ -31,7 +37,7 @@ app.get('/logging', async function(req,res){
     res.render('product');
 });
 
-const port=process.env.PORT || 3000 ;
+const port=process.env.PORT || 8000 ;
 console.log(port);
 const server = app.listen(port, ()=> console.log(`Listening on port ${port}...`));
 var env = process.env.NODE_ENV || 'development';

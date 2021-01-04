@@ -2,12 +2,13 @@ import React,{useEffect} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchAdmins, deleteAdmin } from '../../actions';
+import axios from '../../apis/axios';
 
 const AdminList= (props)=> {
 
     useEffect(() => {
         console.log(props);
-        props.fetchAdmins();
+        props.fetchAdmins();    
     },[]);
 
     const renderActions= (id)=>{
@@ -62,6 +63,7 @@ const AdminList= (props)=> {
             </div>
         );
     }
+
 
     const renderList= ()=>{
         return props.admin.map( (admin) =>{
