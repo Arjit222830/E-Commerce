@@ -1,7 +1,7 @@
 <%- include('header.ejs') %>
 
 <body>
-    <form id = 'product-form'  method="post" action="/logging" enctype="application/x-www-form-urlencoded">
+    <form id = 'product-form'  method="post" action="/admin" enctype="application/x-www-form-urlencoded">
         <p>Give Details</p>
 
         <div class="product">
@@ -15,7 +15,7 @@
             <br><br>
 
             <label> &nbsp; &nbsp;images: &nbsp;</label>
-            <input type="" id="images" name="" placeholder="Age">
+            <input type="" id="images" name="images" placeholder="Age">
             <br><br> 
 
             <label> &nbsp; &nbsp;brand: &nbsp;</label>
@@ -52,6 +52,9 @@
 
             <label> &nbsp; &nbsp;memory: &nbsp;</label>
             <input type="text" id="memory" name="memory" placeholder="memory">
+
+            <label> &nbsp; &nbsp;memory: &nbsp;</label>
+            <input type="text" id="description" name="description" placeholder="description">
             <br> <br>
         </div>
 

@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, '../Client/public')));
 app.use(express.json());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/product' , products);
+app.use('/admin' , products);
 app.use('/brand' , brands);
 
 

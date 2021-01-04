@@ -38,7 +38,7 @@ const AdminForm = (props)=> {
         <form onSubmit={props.handleSubmit(onSubmit)} className="ui form error">
             <Field name="title" component={renderInput} label="Enter Title" />
             <Field name="category" component={renderInput} label="Enter Category" />
-            <Field name="image" component={renderInput} label="Enter Image" />
+            <Field name="images" component={renderInput} label="Enter Image" />
             <Field name="brand" component={renderInput} label="Enter Brand" />
             <Field name="price" component={renderInput} label="Enter Price" />
             <Field name="cpu" component={renderInput} label="Enter CPU" />
@@ -48,6 +48,7 @@ const AdminForm = (props)=> {
             <Field name="display" component={renderInput} label="Enter Display" />
             <Field name="battery" component={renderInput} label="Enter Battery" />
             <Field name="memory" component={renderInput} label="Enter Memory" />
+            <Field name="description" component={renderInput} label="Enter description" />
             <button className="ui button primary">Submit</button>
         </form>
     );
@@ -62,8 +63,8 @@ const validate= (formValues) => {
     if(!formValues.category)
         errors.category= 'You must enter a category';
 
-    if(!formValues.image)
-        errors.image= 'You must enter an image link';
+    if(!formValues.images)
+        errors.images= 'You must enter an image link';
 
     if(!formValues.brand)
         errors.brand= 'You must enter a brand';
@@ -91,6 +92,9 @@ const validate= (formValues) => {
 
     if(!formValues.memory)
         errors.display= 'You must enter a memory';
+
+    if(!formValues.description)
+        errors.description = 'You must enter a description';
 
     return errors;
 }
