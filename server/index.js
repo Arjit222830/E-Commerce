@@ -20,7 +20,6 @@ mongoose.set('useFindAndModify', false);
 app.set("view engine", "ejs");
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, '../Client/public')));
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -28,6 +27,18 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use('/admin' , products);
 app.use('/brand' , brands);
 
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../Client/build')));
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname ,'..','Client','build','index.html'));
+    }); 
+}
+else{
+    app.get('*', (req, res) => {
+        app.use(express.static(path.join(__dirname, '../Client/public')));
+        res.sendFile(path.join(__dirname+'/../Client/public/index.html'));
+    });
+}
 
 app.get('/brand', async function(req,res){
     res.render('brand');
