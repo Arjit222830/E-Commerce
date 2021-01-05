@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm start --prefix ./server",
     "heroku-postbuild": "npm install --prefix ./Client && npm run build --prefix ./Client",
     "server-install": "npm install --prefix ./server",
+    "start": "npm start --prefix ./server",
     "client": "npm start --prefix ./Client",
     "server": "npm run server --prefix ./server",
     "dev": "concurrently \"npm run server\" \"npm run client\""
