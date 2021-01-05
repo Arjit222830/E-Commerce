@@ -2,10 +2,9 @@ import React, { useEffect, Component} from 'react';
 import {connect} from 'react-redux';
 import './BrandFilter.scss';
 import {brands} from "../../data/brands";
-import {addBrandToFilter, removeBrandFromFilter} from "../../actions";
+import { addBrandToFilter , removeBrandFromFilter } from "../../actions";
 
 const BrandFilter = (props) => {
-    console.log(props);
 
     const {dispatch, brandItemsCount} = props;
 
@@ -13,11 +12,11 @@ const BrandFilter = (props) => {
         const name = e.target.name;
         const value = e.target.checked;
         console.log(e.target.name);
-        if(e.target.checked) {
+        if(e.target.checked) 
             dispatch(addBrandToFilter(name));
-        } else {
+        else 
             dispatch(removeBrandFromFilter(name));
-        }
+
     };
 
 
@@ -30,9 +29,7 @@ const BrandFilter = (props) => {
                     {brands.map(brand => (
                         <li key={brand} className="list-group-item flex-50">
                             <label className="custom-checkbox text-capitalize"> {brand} ({brandItemsCount[brand]})
-                                <input type="checkbox"
-                                       name={brand}
-                                       className="custom-checkbox__input" onInput={handleSelectBox}/>
+                                <input type="checkbox" name={brand} className="custom-checkbox__input" onInput={handleSelectBox}/>
                                 <span className="custom-checkbox__span"></span>
                             </label>
                         </li>

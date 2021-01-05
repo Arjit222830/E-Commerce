@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
-import GoogleAuth from "../../components/Auth/GoogleAuth";
+//import GoogleAuth from "../../components/Auth/GoogleAuth";
 
 const Header = ({cartLength}) => {
 
@@ -9,7 +9,7 @@ const Header = ({cartLength}) => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div className="container">
                 <NavLink className="navbar-brand" to="/">Ecommerce</NavLink>
-                    <GoogleAuth />    
+                
                 
                 <div>
                     

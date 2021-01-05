@@ -18,7 +18,7 @@ const ProductDetail = (props) => {
         battery,
         memory,
         description,
-        id
+        _id
     } = props.product;
 
 

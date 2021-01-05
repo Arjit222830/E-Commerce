@@ -1,7 +1,7 @@
 // clientId: '605262780505-cilj4niko08p7ulbmmrj0dr9khbond7m.apps.googleusercontent.com',
 //scope: 'email'
 
-import React from 'react';
+/*import React from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../../actions';
 
@@ -70,3 +70,4 @@ const mapStateToProps= (state)=>{
 }
 
 export default connect(mapStateToProps, {signIn, signOut})(GoogleAuth);
+*/

@@ -16,6 +16,7 @@ import AdminShow from "./components/admin/AdminShow";
 import AdminCreate from "./components/admin/AdminCreate";
 import AdminDelete from "./components/admin/AdminDelete";
 import AdminEdit from "./components/admin/AdminEdit";
+import AdminInfo from "./components/admin/AdminInfo";
 import Modal from "./components/admin/Modal";
 
 const composeEnhancers= window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__  || compose;
@@ -36,6 +37,7 @@ class App extends Component {
                     <Route exact path={'/admin/create'} component={AdminCreate}/>
                     <Route exact path={'/admin/edit/:id'} component={AdminEdit}/>
                     <Route exact path={'/admin/delete/:id'} component={AdminDelete}/>
+                    <Route exact path={'/admin/:id'} component={AdminInfo}/>
                     <Route exact path={'/admin/modal/:id'} component={Modal}/>
                 </Switch>
                 
