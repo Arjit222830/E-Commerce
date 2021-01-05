@@ -1,0 +1,16 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "heroku-postbuild": "npm install --prefix ./Client && npm run build --prefix ./Client",
+    "client-install": "npm install --prefix ./Client",
+    "server": "npm start --prefix ./server",
+    "client": "npm start --prefix ./Client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
