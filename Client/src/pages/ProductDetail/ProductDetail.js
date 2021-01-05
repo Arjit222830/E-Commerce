@@ -1,11 +1,18 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {connect} from 'react-redux';
 import ProductDetailComponent from '../../components/ProductDetail/ProductDetail';
 import ProductSlider from "../../components/ProductSlider/ProductSlider";
+import {fetchAdmins} from "../../actions";
 
 const ProductDetail = (props) => {
 
-    console.log(props);
+    useEffect(async() => {
+        await props.fetchAdmins();  
+        console.log(props.product);  
+    },[]);
+
+    if(!props.product)
+        return "loading"
 
     return (
         <div className="container" style={{padding: '6rem 0'}}>
@@ -19,10 +26,11 @@ const ProductDetail = (props) => {
     );
 };
 
-const mapStateToProps = (state, props) =>  {
+const mapStateToProps = (state, ownProps) =>  {
 
-    const product = state.shop.products.find(product => product.id === +props.match.params.id);
-
+    console.log(state)
+    const product = state.admin[ownProps.match.params.id]
+    console.log(product);
     return {
         product
     }
@@ -30,4 +38,4 @@ const mapStateToProps = (state, props) =>  {
 
 
 
-export default connect(mapStateToProps, null)(ProductDetail);
+export default connect(mapStateToProps, {fetchAdmins})(ProductDetail);

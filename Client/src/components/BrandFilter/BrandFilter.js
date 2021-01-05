@@ -1,10 +1,15 @@
-import React, { useEffect, Component} from 'react';
+import React, { useEffect} from 'react';
 import {connect} from 'react-redux';
 import './BrandFilter.scss';
 import {brands} from "../../data/brands";
-import { addBrandToFilter , removeBrandFromFilter } from "../../actions";
+import {addBrandToFilter, removeBrandFromFilter, fetchAdmins} from "../../actions";
 
 const BrandFilter = (props) => {
+
+    useEffect(() => {
+        props.fetchAdmins();  
+        console.log(props);  
+    },[]);
 
     const {dispatch, brandItemsCount} = props;
 
@@ -16,27 +21,28 @@ const BrandFilter = (props) => {
             dispatch(addBrandToFilter(name));
         else 
             dispatch(removeBrandFromFilter(name));
-
     };
 
 
-        return (
-            <div className="card mb-3">
-                <div className="card-header">
-                    <h3>Brands</h3>
-                </div>
-                <ul className="list-group flex-row flex-wrap">
-                    {brands.map(brand => (
-                        <li key={brand} className="list-group-item flex-50">
-                            <label className="custom-checkbox text-capitalize"> {brand} ({brandItemsCount[brand]})
-                                <input type="checkbox" name={brand} className="custom-checkbox__input" onInput={handleSelectBox}/>
-                                <span className="custom-checkbox__span"></span>
-                            </label>
-                        </li>
-                    ))}
-                </ul>
+    return (
+        <div className="card mb-3">
+            <div className="card-header">
+                <h3>Brands</h3>
             </div>
-        );
+            <ul className="list-group flex-row flex-wrap">
+                {brands.map(brand => (
+                    <li key={brand} className="list-group-item flex-50">
+                        <label className="custom-checkbox text-capitalize"> {brand} ({brandItemsCount[brand]})
+                            <input type="checkbox"
+                                    name={brand}
+                                    className="custom-checkbox__input" onInput={handleSelectBox}/>
+                            <span className="custom-checkbox__span"></span>
+                        </label>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 
 };
 
@@ -44,7 +50,7 @@ const mapStateToProps = (state) => {
 
     const brandItemsCount = {};
     console.log(state);
-    state.shop.products.forEach(p => {
+    Object.values(state.admin).forEach(p => {
         brandItemsCount[p.brand] = brandItemsCount[p.brand] + 1 || 1;
     });
 
@@ -55,4 +61,4 @@ const mapStateToProps = (state) => {
 
 };
 
-export default connect(mapStateToProps)(BrandFilter);
+export default connect(mapStateToProps,{fetchAdmins})(BrandFilter);

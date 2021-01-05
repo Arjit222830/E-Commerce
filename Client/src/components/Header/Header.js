@@ -1,15 +1,21 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
-//import GoogleAuth from "../../components/Auth/GoogleAuth";
+import GoogleAuth from "../../components/Auth/GoogleAuth";
+import {fetchAdmins} from "../../actions";
 
-const Header = ({cartLength}) => {
+const Header = (props) => {
+
+    useEffect(()=>{
+        props.fetchAdmins();
+        console.log(props);
+    },[]);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div className="container">
                 <NavLink className="navbar-brand" to="/">Ecommerce</NavLink>
-                
+                 
                 
                 <div>
                     
@@ -17,7 +23,7 @@ const Header = ({cartLength}) => {
                         <li className="nav-item">    
                                         
                             <NavLink className="nav-link" to={"/cart"}><i className="fa fa-shopping-cart mr-2" aria-hidden="true" />
-                                Cart {cartLength ? `(${cartLength})`: ''}
+                                Cart {props.cartLength ? `(${props.cartLength})`: ''}
                             </NavLink>
                         </li>
                     </ul>
@@ -29,12 +35,13 @@ const Header = ({cartLength}) => {
 
 
 const mapStateToProps = (state) => {
+    console.log(state)
   return {
       cartLength: state.shop.cart.length
   }
 };
 
-export default connect(mapStateToProps, null)(Header);
+export default connect(mapStateToProps, {fetchAdmins})(Header);
 
 
 /*

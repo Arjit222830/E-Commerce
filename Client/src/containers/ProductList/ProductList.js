@@ -78,7 +78,7 @@ class ProductList extends Component {
                     {paginationPipe(this.props.products, this.state).map(product =>{
                         let classes = `${this.state.colValue} col-md-6 mb-4`;
                         return (<div className={classes}>
-                            <Product key={product.id} product={product} />
+                            <Product key={product._id} product={product} />
                         </div>)
                     })}
                 </div>
@@ -102,7 +102,7 @@ const mapStateToProps = state => {
     const brands = state.brandFilter;
     const orderBy = state.orderBy;
 
-    const filterByBrandArr = brandFilter(state.shop.products, brands);
+    const filterByBrandArr = brandFilter( Object.values(state.admin), brands);
     const filterByOrderArr = orderByFilter(filterByBrandArr, orderBy);
 
 

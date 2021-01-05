@@ -1,3 +1,12 @@
+import axios from '../apis/axios'
+
+
+/*export const phones= async ()=>{
+    const response= await axios.get('/admin');
+    console.log(response.data);
+    return response.data;
+};*/
+
 export const phones = [{
     "title": "Apple iPhone 7 Plus 32 GB (Apple Türkiye Garantili)",
     "category": "phone",
@@ -13,7 +22,7 @@ export const phones = [{
     "memory": "16GB, 32GB and RAM 1 GB",
     "id": 0,
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
-}, {
+},{
     "title": "Huawei Mate 20 Lite 64 GB (Huawei Türkiye Garantili)",
     "category": "phone",
     "images": ["https://productimages.hepsiburada.net/s/21/280-413/9933217792050.jpg?v1", "https://productimages.hepsiburada.net/s/21/280-413/9933217628210.jpg?v1", "https://productimages.hepsiburada.net/s/21/280-413/9933217660978.jpg?v1", "https://productimages.hepsiburada.net/s/21/280-413/9933217693746.jpg?v1"],
@@ -358,4 +367,4 @@ export const phones = [{
     "memory": "16GB, 32GB and RAM 1 GB",
     "id": 23,
     "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!"
-}]
+}];

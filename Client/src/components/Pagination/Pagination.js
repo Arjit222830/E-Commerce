@@ -122,7 +122,7 @@ class Pagination extends Component {
 const mapStateToProps = (state) => {
     return {
         ...state.pagination,
-        totalItemsCount: state.shop.products.length,
+        totalItemsCount:  Object.values(state.admin).length,
     }
 };
 

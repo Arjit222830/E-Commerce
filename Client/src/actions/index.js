@@ -1,6 +1,5 @@
 import admin from '../apis/axios';
 
-
 export const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 export const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART';
 export const INCREMENT_CART_ITEM_QUANTITY = 'INCREMENT_CART_ITEM_QUANTITY';
@@ -12,6 +11,7 @@ export const FETCH_ADMINS= 'FETCH_ADMINS'
 export const FETCH_ADMIN= 'FETCH_ADMIN'
 export const EDIT_ADMIN= 'EDIT_ADMIN'
 export const DELETE_ADMIN= 'DELETE_ADMIN'
+export const FETCH_PRODUCTS= 'FETCH_PRODUCTS'
 
 export const signIn = (user)=>{
     return {
@@ -127,6 +127,11 @@ export const countItem = (n) => {
         totalItemsCount: n
     }
 }
+
+export const fetchProducts= () => async (dispatch) => {
+    const response= await admin.get('/admin');
+    dispatch({type: FETCH_PRODUCTS, payload: response.data});
+};
 
 //Admin
 

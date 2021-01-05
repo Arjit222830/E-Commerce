@@ -22,30 +22,28 @@ import Modal from "./components/admin/Modal";
 const composeEnhancers= window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__  || compose;
 export const  store = createStore(rootReducer,composeEnhancers(applyMiddleware(reduxThunk)));
 
-class App extends Component {
-  render() {
-    return (
-        <Provider store={store}>
-            <BrowserRouter>
-            <React.Fragment>
-                <Header/>
-                <Switch>
-                    <Route exact path={'/'} component={Home}/>
-                    <Route exact path={'/products/:id'} component={ProductDetail}/>
-                    <Route exact path={'/cart'} component={ShoppingCart}/>
-                    <Route exact path={'/admin/show'} component={AdminShow}/>
-                    <Route exact path={'/admin/create'} component={AdminCreate}/>
-                    <Route exact path={'/admin/edit/:id'} component={AdminEdit}/>
-                    <Route exact path={'/admin/delete/:id'} component={AdminDelete}/>
-                    <Route exact path={'/admin/:id'} component={AdminInfo}/>
-                    <Route exact path={'/admin/modal/:id'} component={Modal}/>
-                </Switch>
-                
-            </React.Fragment>
-            </BrowserRouter>
-        </Provider>
-    );
-  }
+const App =()=> {
+  return (
+      <Provider store={store}>
+          <BrowserRouter>
+          <React.Fragment>
+              <Header/>
+              <Switch>
+                  <Route exact path={'/'} component={Home}/>
+                  <Route exact path={'/products/:id'} component={ProductDetail}/>
+                  <Route exact path={'/cart'} component={ShoppingCart}/>
+                  <Route exact path={'/admin/show'} component={AdminShow}/>
+                  <Route exact path={'/admin/create'} component={AdminCreate}/>
+                  <Route exact path={'/admin/edit/:id'} component={AdminEdit}/>
+                  <Route exact path={'/admin/delete/:id'} component={AdminDelete}/>
+                  <Route exact path={'/admin/:id'} component={AdminInfo}/>
+                  <Route exact path={'/admin/modal/:id'} component={Modal}/>
+              </Switch>
+              
+          </React.Fragment>
+          </BrowserRouter>
+      </Provider>
+  );
 }
 
 export default App;

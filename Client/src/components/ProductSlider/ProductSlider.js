@@ -2,11 +2,7 @@ import React, {useState} from 'react';
 import {cumulativeOffSet} from "../../utilities/cumulativeOffset"
 import './ProductSlider.scss';
 
-const ProductSlider = (
-    {
-        images
-    }
-) => {
+const ProductSlider = ({images}) => {
     const imageRef = React.createRef();
     const [img, setImg] = useState(images[0]);
     const [aItem, setAItem] = useState(0);
