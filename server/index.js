@@ -11,7 +11,7 @@ const brands = require('./routes/brands');
 
 
 mongoose.connect(config.get('db') , { useNewUrlParser: true ,useUnifiedTopology: true })
-    .then(() => console.log('Connected to mongodb'))
+    .then(() => console.log(`Connected to ${config.get('db')}`))
     .catch(err =>  console.error('Could not connect to mongodb'));
 
 mongoose.set('useCreateIndex', true);

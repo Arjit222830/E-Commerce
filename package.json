@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm start --prefix ./server",
     "heroku-postbuild": "npm install --prefix ./Client && npm run build --prefix ./Client",
-    "client-install": "npm install --prefix ./Client",
+    "server-install": "npm install --prefix ./server",
     "client": "npm start --prefix ./Client",
     "server": "npm run server --prefix ./server",
     "dev": "concurrently \"npm run server\" \"npm run client\""
