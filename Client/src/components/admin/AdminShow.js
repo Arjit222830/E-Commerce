@@ -85,7 +85,7 @@ const AdminList= (props)=> {
     const renderCreate= ()=> {
         return (
             <div style={{ textAlign: 'right' }}>
-                <Link to="/admin/new" className="ui button primary">
+                <Link to="/admin/create" className="ui button primary">
                     CreateAdmin
                 </Link>
             </div>

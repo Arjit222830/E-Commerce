@@ -8,7 +8,6 @@ import './Admin.scss';
 import SlideDots from "../SlideDots/SlideDots";
 import {addProductToCart} from "../../actions";
 
-
 const Admin = (props) => {
 
     const {

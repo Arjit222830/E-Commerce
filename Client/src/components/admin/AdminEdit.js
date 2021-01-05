@@ -6,7 +6,7 @@ import AdminForm from './AdminForm';
 
 const AdminEdit = (props)=> {
 
-     useEffect(() => {
+    useEffect(() => {
         console.log(props);
     
         props.fetchAdmin(props.match.params.id);
