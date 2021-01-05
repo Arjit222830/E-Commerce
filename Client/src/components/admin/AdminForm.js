@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field,FieldArray,reduxForm } from 'redux-form';
 
 const AdminForm = (props)=> {
 
@@ -38,7 +38,10 @@ const AdminForm = (props)=> {
         <form onSubmit={props.handleSubmit(onSubmit)} className="ui form error">
             <Field name="title" component={renderInput} label="Enter Title" />
             <Field name="category" component={renderInput} label="Enter Category" />
-            <Field name="images" component={renderInput} label="Enter Image" />
+            <Field name="images[0]" component={renderInput} label="Enter Image" />
+            <Field  name="images[1]" component={renderInput}  />
+            <Field  name="images[2]" component={renderInput} />
+            <Field  name="images[3]" component={renderInput}  />
             <Field name="brand" component={renderInput} label="Enter Brand" />
             <Field name="price" component={renderInput} label="Enter Price" />
             <Field name="cpu" component={renderInput} label="Enter CPU" />

@@ -13,10 +13,12 @@
             </label>
             <input type="text" id="category" name="category" placeholder="category">
             <br><br>
-
+            
             <label> &nbsp; &nbsp;images: &nbsp;</label>
-            <input type="" id="images" name="images" placeholder="Age">
-            <br><br> 
+            <% for(var i=0; i<4; i++) {%>
+                <input type="" id="images<%- i %>" name="images" placeholder="Age">
+            <%}%>
+            <br><br>
 
             <label> &nbsp; &nbsp;brand: &nbsp;</label>
             <input type="text" id="brand" name="brand" placeholder="brand">
