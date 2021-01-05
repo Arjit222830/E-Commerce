@@ -68,11 +68,11 @@ const AdminList= (props)=> {
     const renderList= ()=>{
         return props.admin.map( (admin) =>{
             return (
-                <div className="item" key={admin.id}>
-                    {renderAdmin(admin,admin.title,admin.id)}
+                <div className="item" key={admin._id}>
+                    {renderAdmin(admin,admin.title,admin._id)}
                     <i className="large middle aligned icon camera" />
                     <div className="content">
-                        <Link to={`/admin/${admin.id}`} className="header">
+                        <Link to={`/admin/${admin._id}`} className="header">
                             {admin.title}
                         </Link>
                         <div className="description">{admin.description}</div>

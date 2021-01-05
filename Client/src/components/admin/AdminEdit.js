@@ -22,13 +22,13 @@ const AdminEdit = (props)=> {
     return (
         <div>
             <h3>Edit a Admin</h3>
-            <AdminForm initialValues={_.pick(props.admin_id, 'title','description')} onSubmit={onSubmit} />
+            <AdminForm initialValues={_.pick(props.admin_id, 'title','category','images','brand','price','cpu','camera','size','weight','display','battery','memory','description')} onSubmit={onSubmit} />
         </div>
     );
 }
 
 const mapStateToProps= (state, ownProps)=>{
- 
+    console.log(state)
     return {
         admin_id: state.admin[ownProps.match.params.id]
     }

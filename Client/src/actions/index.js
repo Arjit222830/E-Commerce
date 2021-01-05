@@ -148,12 +148,12 @@ export const fetchAdmin= (id) => async (dispatch) => {
 };
 
 export const editAdmin= (id, formValues)=> async (dispatch)=> {
-    const response=  await admin.patch(`/admin/${id}`, formValues);
+    const response=  await admin.put(`/admin/${id}`, formValues);
     dispatch({ type: FETCH_ADMIN, payload: response})
 };
 
 export const deleteAdmin= (id)=> async (dispatch)=> {
     await admin.delete(`/admin/${id}`);
     dispatch({type: DELETE_ADMIN, payload: id});
-   window.location.replace('/admin/show');
+    window.location.replace('/admin/show');
 };
