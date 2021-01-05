@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "npm start --prefix ./server",
     "heroku-postbuild": "npm install --prefix ./Client && npm run build --prefix ./Client",
     "client-install": "npm install --prefix ./Client",
-    "start": "npm start --prefix ./server",
     "client": "npm start --prefix ./Client",
-    "dev": "concurrently \"npm run start\" \"npm run client\""
+    "server": "npm start --prefix ./server",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "dependencies": {
     "concurrently": "^5.3.0"
