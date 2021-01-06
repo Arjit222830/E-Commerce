@@ -5,13 +5,13 @@ const productSchema = new mongoose.Schema({
     title: {
         type: String,
         minlength: 4,
-        maxlength: 50,
+        maxlength: 150,
         required: true 
     },
     category: {
         type: String,
         minlength: 4,
-        maxlength: 50,
+        maxlength: 150,
         required: true 
     },
     images: {
@@ -21,7 +21,7 @@ const productSchema = new mongoose.Schema({
     brand: {
         type: String,
         minlength: 4,
-        maxlength: 50,
+        maxlength: 150,
         required: true 
     },
     price: {
@@ -31,49 +31,49 @@ const productSchema = new mongoose.Schema({
     cpu: {
         type: String,
         minlength: 4,
-        maxlength: 50,
+        maxlength: 150,
         required: true
     },
     camera: {
         type: String,
         minlength: 4,
-        maxlength: 50,
+        maxlength: 150,
         required: true
     },
     size: {
         type: String,
         minlength: 4,
-        maxlength: 50,
+        maxlength: 150,
         required: true
     },
     weight: {
         type: String,
         minlength: 4,
-        maxlength: 50,
+        maxlength: 150,
         required: true
     },
     display: {
         type: String,
         minlength: 4,
-        maxlength: 50,
+        maxlength: 150,
         required: true
     },
     battery:{
         type: String,
         minlength: 4,
-        maxlength: 50,
+        maxlength: 150,
         required: true
     },
     memory: {
         type: String,
         minlength: 4,
-        maxlength: 50,
+        maxlength: 150,
         required: true
     },
     description: {
         type: String,
         minlength: 4,
-        maxlength: 50,
+        maxlength: 150,
         required: true
     }
 });
