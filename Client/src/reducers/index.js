@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import shop from './shop.reducer';
-import {brandFilterReducer} from "./brand.filter.reducer";
+import brandFilterReducer from "./brandFilterReducer";
 import {orderByPriceReducer} from "./orderByPrice.filter.reducer";
 import {paginationReducer} from "./pagination.reducer";
 import { reducer as formReducer} from 'redux-form';

@@ -1,5 +1,9 @@
 import admin from '../apis/axios';
 
+import history from '../history';
+
+export const ADD_BRAND_TO_FILTER = 'ADD_BRAND_TO_FILTER';
+export const REMOVE_BRAND_FROM_FILTER = 'REMOVE_BRAND_FROM_FILTER';
 export const ADD_PRODUCT_TO_CART = 'ADD_PRODUCT_TO_CART';
 export const REMOVE_PRODUCT_FROM_CART = 'REMOVE_PRODUCT_FROM_CART';
 export const INCREMENT_CART_ITEM_QUANTITY = 'INCREMENT_CART_ITEM_QUANTITY';
@@ -12,6 +16,13 @@ export const FETCH_ADMIN= 'FETCH_ADMIN'
 export const EDIT_ADMIN= 'EDIT_ADMIN'
 export const DELETE_ADMIN= 'DELETE_ADMIN'
 export const FETCH_PRODUCTS= 'FETCH_PRODUCTS'
+export const PREV_PAGE = 'PREV_PAGE';
+export const NEXT_PAGE = 'NEXT_PAGE';
+export const GO_PAGE = 'GO_PAGE';
+export const COUNT_ITEM = 'COUNT_ITEM';
+export const ORDER_BY_ASC = 'ORDER_BY_ASC';
+export const ORDER_BY_DESC = 'ORDER_BY_DESC';
+export const CLEAR_ORDER_BY_PRICE = 'CLEAR_ORDER_BY_PRICE';
 
 export const signIn = (user)=>{
     return {
@@ -54,53 +65,11 @@ export const decrementCartQuantity = productId => {
   }
 };
 
-
-export const ADD_BRAND_TO_FILTER = 'ADD_BRAND_TO_FILTER';
-export const REMOVE_BRAND_FROM_FILTER = 'REMOVE_BRAND_FROM_FILTER';
-
-export const addBrandToFilter = brand => {
-    return {
-        type: ADD_BRAND_TO_FILTER,
-        brand
-    }
-};
-
-
-export const removeBrandFromFilter = brand => {
-    return  {
-        type: REMOVE_BRAND_FROM_FILTER,
-        brand
-    }
-};
-
-export const ORDER_BY_ASC = 'ORDER_BY_ASC';
-export const ORDER_BY_DESC = 'ORDER_BY_DESC';
-export const CLEAR_ORDER_BY_PRICE = 'CLEAR_ORDER_BY_PRICE';
-
-export const orderByAsc = () => {
-    return {
-        type: ORDER_BY_ASC
-    }
-};
-
-export const orderByDesc =  () => {
-    return {
-        type: ORDER_BY_DESC
-    }
-};
-
 export const clearOrderBy = () => {
     return {
         type: CLEAR_ORDER_BY_PRICE
     }
 };
-
-
-export const PREV_PAGE = 'PREV_PAGE';
-export const NEXT_PAGE = 'NEXT_PAGE';
-export const GO_PAGE = 'GO_PAGE';
-export const COUNT_ITEM = 'COUNT_ITEM';
-
 
 export const nextPage = () => {
     return {
@@ -127,6 +96,23 @@ export const countItem = (n) => {
         totalItemsCount: n
     }
 }
+
+export const orderByAsc = () => (dispatch)=>{
+    dispatch({type: ORDER_BY_ASC});
+};
+
+export const orderByDesc = () => (dispatch)=>{
+    dispatch({type: ORDER_BY_DESC});
+};
+
+export const addBrandToFilter = (brand) => (dispatch)=>{
+    console.log("g");
+    dispatch({type: ADD_BRAND_TO_FILTER, brand});
+};
+
+export const removeBrandFromFilter = (brand) => (dispatch)=>{
+    dispatch({type: REMOVE_BRAND_FROM_FILTER, brand});
+};
 
 export const fetchProducts= () => async (dispatch) => {
     const response= await admin.get('/admin');

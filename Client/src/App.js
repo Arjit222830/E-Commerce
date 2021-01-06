@@ -4,7 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 import rootReducer from './reducers';
 
-import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom';
+import {BrowserRouter, Switch, Route, Router, Redirect} from 'react-router-dom';
 
 import './App.scss';
 import Home from "./pages/Home/Home";
@@ -18,6 +18,7 @@ import AdminDelete from "./components/admin/AdminDelete";
 import AdminEdit from "./components/admin/AdminEdit";
 import AdminInfo from "./components/admin/AdminInfo";
 import Modal from "./components/admin/Modal";
+import history from "./history";
 
 const composeEnhancers= window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__  || compose;
 export const  store = createStore(rootReducer,composeEnhancers(applyMiddleware(reduxThunk)));
@@ -25,7 +26,7 @@ export const  store = createStore(rootReducer,composeEnhancers(applyMiddleware(r
 const App =()=> {
   return (
       <Provider store={store}>
-          <BrowserRouter>
+          <Router history={history}>
           <React.Fragment>
               <Header/>
               <Switch>
@@ -39,9 +40,8 @@ const App =()=> {
                   <Route exact path={'/admin/:id'} component={AdminInfo}/>
                   <Route exact path={'/admin/modal/:id'} component={Modal}/>
               </Switch>
-              
           </React.Fragment>
-          </BrowserRouter>
+          </Router>
       </Provider>
   );
 }

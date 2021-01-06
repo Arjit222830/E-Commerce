@@ -11,16 +11,17 @@ const BrandFilter = (props) => {
         console.log(props);  
     },[]);
 
-    const {dispatch, brandItemsCount} = props;
+    const {brandItemsCount} = props;
+
 
     const handleSelectBox = (e) => {
+        console.log(props.state);  
         const name = e.target.name;
-        const value = e.target.checked;
         console.log(e.target.name);
         if(e.target.checked) 
-            dispatch(addBrandToFilter(name));
+            props.addBrandToFilter(name);
         else 
-            dispatch(removeBrandFromFilter(name));
+            props.removeBrandFromFilter(name);
     };
 
 
@@ -51,14 +52,16 @@ const mapStateToProps = (state) => {
     const brandItemsCount = {};
     console.log(state);
     Object.values(state.admin).forEach(p => {
+        console.log(brandItemsCount[p.brand]);
         brandItemsCount[p.brand] = brandItemsCount[p.brand] + 1 || 1;
     });
 
 
     return {
-        brandItemsCount
+        brandItemsCount,
+        state
     }
 
 };
 
-export default connect(mapStateToProps,{fetchAdmins})(BrandFilter);
+export default connect(mapStateToProps,{fetchAdmins,addBrandToFilter,removeBrandFromFilter})(BrandFilter);

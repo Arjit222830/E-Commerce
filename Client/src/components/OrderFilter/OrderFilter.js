@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import './OrderFilter.scss';
-import {clearOrderBy, ORDER_BY_ASC, ORDER_BY_DESC, orderByAsc, orderByDesc} from "../../actions";
+import {clearOrderBy, ORDER_BY_ASC,ORDER_BY_DESC, orderByAsc, orderByDesc} from "../../actions";
 
-const OrderFilter = ({dispatch}) => {
+const OrderFilter = (props) => {
 
     let removeSelected;
     const [selected, setSelected] = useState('');
@@ -12,9 +12,9 @@ const OrderFilter = ({dispatch}) => {
         const value = e.target.value;
         setSelected(value);
         if(value === ORDER_BY_ASC) {
-            dispatch(orderByAsc());
+            props.orderByAsc();
         } else {
-            dispatch(orderByDesc());
+            props.orderByDesc();
         }
     };
 
@@ -26,7 +26,7 @@ const OrderFilter = ({dispatch}) => {
             el.checked = false;
         });
 
-        dispatch(clearOrderBy());
+        props.clearOrderBy();
         setSelected('');
     };
 
@@ -64,4 +64,4 @@ const OrderFilter = ({dispatch}) => {
     );
 };
 
-export default connect()(OrderFilter);
+export default connect(null,{orderByAsc,orderByDesc,clearOrderBy})(OrderFilter);

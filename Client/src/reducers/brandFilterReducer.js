@@ -1,7 +1,7 @@
 import {ADD_BRAND_TO_FILTER, REMOVE_BRAND_FROM_FILTER} from "../actions";
 
-export const  brandFilterReducer = (state = '', action) => {
-    console.log(state);
+export default (state = '', action) => {
+    console.log("ghhggh");
     switch (action.type) {
         case ADD_BRAND_TO_FILTER:
             if(state.includes(action.brand)) return state;
