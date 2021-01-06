@@ -34,8 +34,8 @@ if(process.env.NODE_ENV === 'production') {
     }); 
 }
 else{
+    app.use(express.static(path.join(__dirname, '../Client/public')));
     app.get('*', (req, res) => {
-        app.use(express.static(path.join(__dirname, '../Client/public')));
         res.sendFile(path.join(__dirname+'/../Client/public/index.html'));
     });
 }
