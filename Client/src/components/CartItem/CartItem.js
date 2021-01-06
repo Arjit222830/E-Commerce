@@ -11,16 +11,16 @@ const CartItem = (
         price,
         description,
         quantity,
-        id,
+        _id,
         img,
         dispatch
     }
 ) => {
 
-    console.log(id);
+    console.log(_id);
     const [itemQuantity, setItemQuantity] = useState(quantity);
     const removeItem = () => {
-        dispatch(removeProductToCart(id));
+        dispatch(removeProductToCart(_id));
     };
 
     const handleQuantityChange = (e) => {
@@ -29,7 +29,7 @@ const CartItem = (
 
         if(value > 0 && value <= 10) {
             setItemQuantity(value);
-            dispatch(addProductToCart(id));
+            dispatch(addProductToCart(_id));
         } */
     };
 
@@ -39,13 +39,13 @@ const CartItem = (
 
         if(type === 'inc' && value < 10) {
             setItemQuantity(itemQuantity + 1);
-            dispatch(incrementCartQuantity(id));
+            dispatch(incrementCartQuantity(_id));
         }
 
 
         if(type === 'desc' && value > 1) {
             setItemQuantity(itemQuantity - 1);
-            dispatch(decrementCartQuantity(id));
+            dispatch(decrementCartQuantity(_id));
         }
 
     };

@@ -23,6 +23,7 @@ const ProductDetail = (props) => {
 
 
     const onCart = () => {
+        console.log("Fsd");
         props.dispatch(addProductToCart(props.product));
     };
 

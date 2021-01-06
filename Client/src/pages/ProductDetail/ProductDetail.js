@@ -6,8 +6,8 @@ import {fetchAdmins} from "../../actions";
 
 const ProductDetail = (props) => {
 
-    useEffect(async() => {
-        await props.fetchAdmins();  
+    useEffect(() => {
+        props.fetchAdmins();  
         console.log(props.product);  
     },[]);
 
