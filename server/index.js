@@ -8,6 +8,7 @@ const cors= require('cors');
 const config = require('config');
 const products = require('./routes/products');
 const brands = require('./routes/brands');
+const razorpay = require('./routes/razorpay');
 
 
 mongoose.connect(config.get('db') , { useNewUrlParser: true ,useUnifiedTopology: true })
@@ -26,6 +27,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/admin' , products);
 app.use('/brand' , brands);
+app.use('/razorpay' , razorpay);
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../Client/build')));

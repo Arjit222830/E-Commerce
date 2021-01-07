@@ -2,8 +2,46 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {formatMoney} from "../../pipes/priceFormatter";
 import CartItem from "../../components/CartItem/CartItem";
+import axios from "../../apis/axios"
 
 const ShoppingCart = (props) => {
+
+    const razorpay= async()=>{
+        const res= await axios.post('/razorpay/orders',{amount:props.totalPrice*100});
+        const order_id= res.data;
+        console.log(order_id);
+        var options = {
+            "key": "rzp_test_stgeaUiidb3JxB", // Enter the Key ID generated from the Dashboard
+            "amount": props.totalPrice*100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "E-Commerce",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": order_id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler":  async(response)=>{
+                const res = await axios.post('/razorpay',response);
+                if(!res)
+                    alert("Oops.. Some Problem");
+
+                alert(res.data);
+            },
+            "prefill": {
+                "name": "Arjit Bhandari",
+                "email": "arjitbhandari222830@gmail.com",
+                "contact": "9456300762"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        const _window = window;
+        const paymentObject = new _window.Razorpay(options);
+        paymentObject.open();
+    }
+
     return (
         <>
                 <div className="container" style={{paddingTop: '6rem'}}>
@@ -23,6 +61,10 @@ const ShoppingCart = (props) => {
                                 <div className="pull-right" style={{margin: '5px'}}>
                                     Total price: <b>{formatMoney(props.totalPrice)}€</b>
                                 </div>
+                            </div>
+                            <div className="pull-right" style={{margin: '10px'}}>
+                                <div className="pull-right" style={{margin: '5px'}}>
+                                    <button onClick={()=> razorpay()} className="btn btn-primary">Pay</button>                                </div>
                             </div>
                         </div>
                     </div>
