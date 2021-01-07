@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {Payment}= require('../models/payment');
-var Razorpay= require('Razorpay');
+var Razorpay= require('razorpay');
 var instance = new Razorpay({ key_id: 'rzp_test_stgeaUiidb3JxB', key_secret: 'uLnUBlTcdzyPE0eW7KvHR67l' });
 
 router.post('/',async (req,res)=>{
