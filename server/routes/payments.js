@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {Payment}= require('../models/payment');
 var Razorpay= require('razorpay');
-var instance = new Razorpay({ key_id: 'rzp_test_stgeaUiidb3JxB', key_secret: 'uLnUBlTcdzyPE0eW7KvHR67l' });
+
 
 router.post('/',async (req,res)=>{
     const payment= new Payment({
@@ -16,6 +16,7 @@ router.post('/',async (req,res)=>{
 });
 
 router.post('/orders',async function(req,res){
+    var instance = new Razorpay({ key_id: 'rzp_test_stgeaUiidb3JxB', key_secret: 'uLnUBlTcdzyPE0eW7KvHR67l' });
     var data= {
       amount: req.body.amount,  // amount in the smallest currency unit
       currency: "INR",
