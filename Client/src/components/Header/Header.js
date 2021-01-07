@@ -15,7 +15,7 @@ const Header = (props) => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div className="container">
                 <NavLink className="navbar-brand" to="/">Ecommerce</NavLink>
-                 
+                    <GoogleAuth />
                 
                 <div>
                     

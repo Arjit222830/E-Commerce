@@ -6,7 +6,7 @@ import './CartItem.scss';
 import {addProductToCart, decrementCartQuantity, incrementCartQuantity, removeProductToCart} from "../../actions";
 
 const CartItem = (
-    {
+{
         title,
         price,
         description,
@@ -17,7 +17,6 @@ const CartItem = (
     }
 ) => {
 
-    console.log(_id);
     const [itemQuantity, setItemQuantity] = useState(quantity);
     const removeItem = () => {
         dispatch(removeProductToCart(_id));

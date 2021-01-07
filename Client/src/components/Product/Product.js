@@ -63,12 +63,14 @@ const Product = (props) => {
         setAItem(i);
     }
 
+    
+
     return (
         <div className="card h-100 product">
             <Link to={`/products/${_id}`} className="product__link"><img
-                onMouseMove={handleImageChange}
                 onMouseOut={handleMouseOut}
-                onTouchMove={handleImageChange}
+                onTouceMove={handleImageChange}
+                onMoushMove={handleImageChange}
                 onTouchEnd={handleMouseOut}
                 className="card-img-top product__img" src={img} alt={title} ref={imageRef}/>
                 <SlideDots len={images.length} activeItem={aItem} changeItem={changeImage}/>

@@ -1,7 +1,7 @@
 // clientId: '605262780505-cilj4niko08p7ulbmmrj0dr9khbond7m.apps.googleusercontent.com',
 //scope: 'email'
 
-/*import React from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../../actions';
 
@@ -24,7 +24,7 @@ class GoogleAuth extends React.Component {
         const user= this.auth.currentUser.get();
         console.log(user);
         if(isSignedIn)
-            this.props.signIn({name:user.Qt.Ad, email:user.Qt.cu, Id: user.getId()});
+            this.props.signIn({name:user.wt.Ad, email:user.wt.cu, Id: user.getId()});
         else
             this.props.signOut();
     }
@@ -70,4 +70,3 @@ const mapStateToProps= (state)=>{
 }
 
 export default connect(mapStateToProps, {signIn, signOut})(GoogleAuth);
-*/
