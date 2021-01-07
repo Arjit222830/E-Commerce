@@ -62,11 +62,11 @@ const ShoppingCart = (props) => {
                                     Total price: <b>{formatMoney(props.totalPrice)}€</b>
                                 </div>
                             </div>
-                            <div className="pull-right" style={{margin: '10px'}}>
+                            {/*<div className="pull-right" style={{margin: '10px'}}>
                                 <div className="pull-right" style={{margin: '5px'}}>
                                     <button onClick={()=> razorpay()} className="btn btn-primary">Pay</button>                                
                                 </div>
-                            </div> 
+                            </div> */}
                         </div>
                     </div>
                 </div>
